@@ -9,7 +9,7 @@ import UIKit
 
 class TransanctionDetailVC: UIViewController {
 
-    //MARK:- outlet and variables
+    //MARK:- Outlet and Variables
     @IBOutlet weak var labelTotal: UILabel!
     @IBOutlet weak var labelGSTAmount: UILabel!
     @IBOutlet weak var labelSummary: UILabel!
@@ -22,13 +22,14 @@ class TransanctionDetailVC: UIViewController {
     var transanctionDetail : TransanctionModel?
     var transanctionAmount : Double?
     
-    //MARK:- lifecycle methods
+    //MARK:- View Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setView()
     }
     
+    //MARK:- Other functions
     func setView(){
         self.navigationItem.title = AlertTitles.transanctionDetailTitle
         let image = UIImage(named: "blackBack")?.withRenderingMode(.alwaysOriginal)
@@ -61,15 +62,14 @@ class TransanctionDetailVC: UIViewController {
         labelGSTAmount.text = "$\(getGSTAmount(includedGSTamount: transanctionAmount ?? 0.0))"
         
     }
-    
-    //MARK:- Other functions
-    
+        
     //calculate 15% GST
     func getGSTAmount(includedGSTamount:Double) -> Double{
         let gstAmount = (includedGSTamount/23) * 3
         return round(100 * gstAmount) / 100
     }
     
+    //MARK:- IBAction Callbacks
     @objc func backButton(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: false)
     }

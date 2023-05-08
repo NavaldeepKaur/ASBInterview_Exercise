@@ -9,12 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    //MARK:- outlet and variables
+    //MARK:- Outlet and Variables
     @IBOutlet weak var transanctionTableView: UITableView!
     var viewModel : TransanctionViewModel?
     var transanctionList = transanction()
        
-    //MARK:- lifecycle methods
+    //MARK:- View Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -33,14 +33,13 @@ class ViewController: UIViewController {
     
     //MARK:- Other functions
     func setView(){
-        
         viewModel = TransanctionViewModel.init(Delegate: self, view: self)
         transanctionTableView.delegate = self
         transanctionTableView.dataSource = self
         transanctionTableView.separatorStyle = .none
-       
     }
     
+    //api call 
     func transanctionHistoryApiCall(){
         viewModel?.transanctionHistoryApi(completion: { [weak self] response in
             guard let self = self else {
@@ -61,6 +60,7 @@ class ViewController: UIViewController {
             }
         })
     }
+    
 }
 
 //MARK:- TransanctionDelegate
@@ -72,7 +72,7 @@ extension ViewController : TransanctionDelegate{
     }
 }
 
-//MARK:- TableViewDelegateAndDataSource
+//MARK:- UITableViewDelegateAndDataSource
 extension ViewController : UITableViewDelegate, UITableViewDataSource
 {
     

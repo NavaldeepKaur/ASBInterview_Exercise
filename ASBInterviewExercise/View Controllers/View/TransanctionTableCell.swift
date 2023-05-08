@@ -9,7 +9,7 @@ import UIKit
 
 class TransanctionTableCell: UITableViewCell {
 
-    //MARK:- outlet and variables
+    //MARK:- Outlet and Variables
     @IBOutlet weak var labelSummary: UILabel!
     @IBOutlet weak var labelStatus: UILabel!
     @IBOutlet weak var labelDate: UILabel!
@@ -26,7 +26,7 @@ class TransanctionTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    //MARK:- setData in cell
+    //MARK:- SetData in cell
     func setData(transactionData: TransanctionModel,view:UIViewController){
         labelSummary.text = transactionData.summary ?? ""
         labelDate.text = view.convertDateFormater(date:transactionData.transactionDate ?? "",formate: "dd MMM yyyy")

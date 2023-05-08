@@ -43,16 +43,13 @@ class TransanctionViewModel
                        }
                        let decoder = JSONDecoder()
                    if let decodedData = try? decoder.decode(transanction.self, from: data!){
-                   
                     completion(decodedData)
                     self.view.hideLoader()
                 }else{
                     self.view.hideLoader()
                     self.delegate.didError(error: AlertTitles.errorMessage)
                 }
-                      
                    }
-       
     }
     
    
