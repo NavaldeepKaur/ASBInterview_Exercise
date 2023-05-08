@@ -6,15 +6,29 @@
 //
 
 import UIKit
+import Network
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        set_nav_bar_color()
         return true
+    }
+    
+
+    //MARK:- Other functions
+    
+    func set_nav_bar_color()
+    {
+        UINavigationBar.appearance().tintColor = UIColor.black
+        UINavigationBar.appearance().barTintColor = Appcolor.kThemeColor
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().clipsToBounds = false
+        UINavigationBar.appearance().backgroundColor = Appcolor.kThemeColor
+            
     }
 
     // MARK: UISceneSession Lifecycle
