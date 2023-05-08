@@ -13,10 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var transanctionTableView: UITableView!
     var viewModel : TransanctionViewModel?
     var transanctionList = transanction()
-    var page = 1
-    var isScroll = false
-    var isFetching = false
-    
+       
     //MARK:- lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +30,7 @@ class ViewController: UIViewController {
         //call transactionList Api
         transanctionHistoryApiCall()
     }
+    
     //MARK:- Other functions
     func setView(){
         
@@ -56,7 +54,7 @@ class ViewController: UIViewController {
                 return d1 > d2
             }
             self.transanctionList = dateArray
-            self.isFetching = true
+            //setEmptyMessage method created to show error message on label incase there is no data
             DispatchQueue.main.async {
                 self.transanctionTableView.setEmptyMessage("")
                 self.transanctionTableView.reloadData()
@@ -65,10 +63,10 @@ class ViewController: UIViewController {
     }
 }
 
-//MARK:- delegate
+//MARK:- TransanctionDelegate
 extension ViewController : TransanctionDelegate{
+    //this method is call in case there is no data return from api end
     func didError(error: String) {
-        self.isFetching = false
         self.transanctionTableView.setEmptyMessage(error)
         self.transanctionTableView.reloadData()
     }
@@ -94,33 +92,11 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource
     {
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let transanctionDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "TransanctionDetailVC") as! TransanctionDetailVC
+        let transanctionDetailVC = Navigation.GetInstance(of: .TransanctionDetailVC) as! TransanctionDetailVC
         transanctionDetailVC.transanctionDetail = transanctionList[indexPath.row]
         self.navigationController?.pushViewController(transanctionDetailVC, animated: false)
     }
 }
 
 
-extension ViewController : UIScrollViewDelegate{
-    
-    //Pagination
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-        if scrollView == transanctionTableView{
-            if ((transanctionTableView.contentOffset.y + transanctionTableView.frame.size.height) >= transanctionTableView.contentSize.height)
-            {
-                if isFetching == true
-                {
-                    isScroll = true
-                    isFetching = false
-                    self.page = self.page+1
-                    
-                    self.transanctionHistoryApiCall()
-                }
-                else{
-                    isScroll = false
-                }
-            }
-        }
-    }
-}
+

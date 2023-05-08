@@ -5,7 +5,7 @@
 //  Created by Navaldeep Kaur on 03/05/23.
 //
 
-import Foundation
+import UIKit
 
 enum ApiMethods : String {
     case get = "GET"
@@ -25,4 +25,38 @@ struct AlertTitles {
     static let youMoney = "YouMoney"
     static let credit = "Credit"
     static let debit = "Debit"
+}
+
+enum Controller
+{
+    case TransanctionDetailVC
+    
+    var obj: UIViewController?
+    {
+        switch self
+        {
+        case .TransanctionDetailVC :
+        return StoryBoards.Main.obj?.instantiateViewController(withIdentifier: "TransanctionDetailVC")
+
+        }}
+}
+
+enum StoryBoards
+{
+    case Main
+    
+    var obj: UIStoryboard?
+    {
+        switch self
+        {
+        case .Main:
+            return UIStoryboard(name: "Main", bundle: nil)
+        }
+    }
+    
+}
+
+func GetInstance(of controller : Controller) -> UIViewController
+{
+    return controller.obj!
 }

@@ -38,6 +38,8 @@ class TransanctionDetailVC: UIViewController {
         //set Transaction Detail data
         labelSummary.text = transanctionDetail?.summary
         labelDate.text = convertDateFormater(date:transanctionDetail?.transactionDate ?? "",formate: "E, d MMM yyyy,h:mm a")
+        
+        //check is user getting credit amount or debit
         let amount = transanctionDetail?.credit ?? 0.0
         if amount.isNormal{
             labelAmount.text = "$\(transanctionDetail?.credit ?? 0)"
@@ -57,7 +59,6 @@ class TransanctionDetailVC: UIViewController {
        
         labelTotal.text = "\(String(describing: labelAmount.text ?? ""))"
         labelGSTAmount.text = "$\(getGSTAmount(includedGSTamount: transanctionAmount ?? 0.0))"
-        
         
     }
     

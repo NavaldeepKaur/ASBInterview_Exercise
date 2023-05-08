@@ -30,6 +30,7 @@ class TransanctionTableCell: UITableViewCell {
     func setData(transactionData: TransanctionModel,view:UIViewController){
         labelSummary.text = transactionData.summary ?? ""
         labelDate.text = view.convertDateFormater(date:transactionData.transactionDate ?? "",formate: "dd MMM yyyy")
+        //check is user getting credit amount or debit
         let amount = transactionData.credit ?? 0.0
         if amount.isNormal{
             labelAmount.text = "\(transactionData.credit ?? 0)"

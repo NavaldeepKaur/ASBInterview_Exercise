@@ -21,6 +21,7 @@
 		9BF30EE42A038E1700DBB56B /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF30EE22A038E1700DBB56B /* LoaderView.swift */; };
 		9BF30EE62A04B2D400DBB56B /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF30EE52A04B2D400DBB56B /* AppColor.swift */; };
 		9BF30EE82A04CDC200DBB56B /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF30EE72A04CDC200DBB56B /* UITableView.swift */; };
+		9BF30EEC2A08B38400DBB56B /* NavigationHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF30EEB2A08B38400DBB56B /* NavigationHandling.swift */; };
 		DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */; };
 		DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */; };
 		DCF7BB0826B23DFF00AE0E0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0726B23DFF00AE0E0E /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 		9BF30EE22A038E1700DBB56B /* LoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		9BF30EE52A04B2D400DBB56B /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		9BF30EE72A04CDC200DBB56B /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		9BF30EEB2A08B38400DBB56B /* NavigationHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHandling.swift; sourceTree = "<group>"; };
 		9F4412E0C279BB5987511EF2 /* Pods-ASBInterviewExercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASBInterviewExercise.release.xcconfig"; path = "Target Support Files/Pods-ASBInterviewExercise/Pods-ASBInterviewExercise.release.xcconfig"; sourceTree = "<group>"; };
 		B0DB09EA69F102671DDC5D0B /* Pods-ASBInterviewExercise-ASBInterviewExerciseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASBInterviewExercise-ASBInterviewExerciseUITests.debug.xcconfig"; path = "Target Support Files/Pods-ASBInterviewExercise-ASBInterviewExerciseUITests/Pods-ASBInterviewExercise-ASBInterviewExerciseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB709CA39E7DA8DB25426F13 /* Pods_ASBInterviewExerciseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ASBInterviewExerciseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,8 @@
 		9BF30EC42A01D98E00DBB56B /* AppBase */ = {
 			isa = PBXGroup;
 			children = (
+				9BF30EEA2A08B21100DBB56B /* Handle Navigation */,
+				9BF30EE92A08883800DBB56B /* Api Connections */,
 				9BF30EE02A038DB700DBB56B /* Custom Views */,
 				9BF30EDD2A033B3B00DBB56B /* Global Classes */,
 				9BF30EDA2A033A3C00DBB56B /* Reuse Extensions */,
@@ -228,6 +232,14 @@
 			path = "Api Connections";
 			sourceTree = "<group>";
 		};
+		9BF30EEA2A08B21100DBB56B /* Handle Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				9BF30EEB2A08B38400DBB56B /* NavigationHandling.swift */,
+			);
+			path = "Handle Navigation";
+			sourceTree = "<group>";
+		};
 		DCF7BAF726B23DFE00AE0E0E = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				9BF30EC82A01DA9100DBB56B /* App Delegate */,
-				9BF30EE92A08883800DBB56B /* Api Connections */,
 				9BF30EC42A01D98E00DBB56B /* AppBase */,
 				9BF30EC92A01DAC300DBB56B /* View Controllers */,
 				DCF7BB0926B23DFF00AE0E0E /* Main.storyboard */,
@@ -550,6 +561,7 @@
 				9BF30EE42A038E1700DBB56B /* LoaderView.swift in Sources */,
 				9BF30EDC2A033A5E00DBB56B /* UIViewController.swift in Sources */,
 				DCF7BB0826B23DFF00AE0E0E /* ViewController.swift in Sources */,
+				9BF30EEC2A08B38400DBB56B /* NavigationHandling.swift in Sources */,
 				DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */,
 				9BF30EDF2A033B5E00DBB56B /* CommonFunctions.swift in Sources */,
 				DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */,
